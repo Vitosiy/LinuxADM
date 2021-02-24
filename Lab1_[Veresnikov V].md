@@ -73,4 +73,4 @@
 	 13:26:23 up 35 min,  1 user,  load average: 1,70, 1,60, 1,47
 	 
 	8. Установить Linux
-	![linux](https://drive.google.com/file/d/10NivKDXuurl1YaRDeTzOPBHFhczSNJ7S/view?usp=sharing)
+	![linux](https://sun9-19.userapi.com/impg/cjG0KlM-CyhULVBIJ9346TW8xSbzRkFncRpBEQ/nYovhgSuw5M.jpg?size=2560x1440&quality=96&proxy=1&sign=7f40cc43255e3492eb4008ff86362360&type=album)
