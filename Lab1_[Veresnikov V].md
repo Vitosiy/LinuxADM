@@ -71,3 +71,6 @@
 	Загрузка процессора:
 	uptime
 	 13:26:23 up 35 min,  1 user,  load average: 1,70, 1,60, 1,47
+	 
+	8. Установить Linux
+	![linux](https://drive.google.com/file/d/10NivKDXuurl1YaRDeTzOPBHFhczSNJ7S/view?usp=sharing)
