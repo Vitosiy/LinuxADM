@@ -66,7 +66,7 @@ fi
 	
  Задание №1:
  
- 	![linux](https://raw.githubusercontent.com/Vitosiy/LinuxADM/Lab5/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B51.png)
+ 	![linux](https://sun9-58.userapi.com/impg/R6tiopgd2TZIbYmoSn1VPYr7zpsWFTGlVZErDA/OHSBwUd5DC4.jpg?size=552x412&quality=96&sign=de751f4a7f3f544caff225043a06a096&type=album)
  
  
  Задание №2:
@@ -91,7 +91,7 @@ fi
     
     5)Управление мышью:
     
-    	![linux](https://raw.githubusercontent.com/Vitosiy/LinuxADM/Lab5/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%202.5.png)
+    	![linux](https://sun9-37.userapi.com/impg/zn6yfyxxipHOBbtpQtY6S_CR8CtK5GlBp8MqLg/imvaHTTIWhc.jpg?size=1920x1080&quality=96&sign=c5bf898bed66983600cb115b7b709471&type=album)
     
     6)Zoom:
     
