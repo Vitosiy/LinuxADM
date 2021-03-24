@@ -62,3 +62,43 @@ else
 fi
 
 	Выведет 2
+	
+	
+ Задание №1:
+ 
+ ![linux](https://raw.githubusercontent.com/Vitosiy/LinuxADM/Lab5/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B51.png)
+ 
+ 
+ Задание №2:
+ 
+ 
+    1)Настроить tmux:
+    	
+	echo "set -g mouse on" > ~/.tmux.conf
+    	
+    2)Научиться запускать:
+    
+	tmux
+	
+    3)Создавать новые pane:
+    
+    	CTRL+B c
+    
+    4)Делать split pane:
+    
+    	CTRL+B # - вертикальное деление
+    	CTRL+B " - горизонтальное деление
+    
+    5)Управление мышью:
+    
+    6)Zoom:
+    
+    	 CTRL+B z
+    
+    7)Закрытие pane:
+    
+    	CTRL+B x
+    
+    8)Detach:
+    
+	CTRL+B d
