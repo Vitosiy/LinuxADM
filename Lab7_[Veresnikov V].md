@@ -134,19 +134,21 @@
 
 
 	Первая виртуалка
+	```
 	auto eth0.15 
 	iface eth0.15 inet static
 	  address 192.168.0.1/24
 	  address 192.168.0.1
 	  vlan_raw_device eth0
-
+	```
 
 	Вторая виртуалка
+	```
 	auto eth0.15 
 	iface eth0.15 inet static
 	  address 192.168.0.2/24
 	  address 192.168.0.1
 	  vlan_raw_device eth0
-
+	```
 
 ![](https://i.imgur.com/fHxhYMX.png)
