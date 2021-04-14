@@ -119,6 +119,7 @@
 	$ route add default gw 192.168.0.1 eth0
 	
 ![](https://i.imgur.com/nV8PkjL.png)
+
 5. Получить настройки IP от DHCP сервера:
 
 	iface eth0 inet dhcp
@@ -139,11 +140,13 @@
 	  address 192.168.0.1
 	  vlan_raw_device eth0
 
+
 	Вторая виртуалка
 	auto eth0.15 
 	iface eth0.15 inet static
 	  address 192.168.0.2/24
 	  address 192.168.0.1
 	  vlan_raw_device eth0
+
 
 ![](https://i.imgur.com/fHxhYMX.png)
