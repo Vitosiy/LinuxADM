@@ -106,23 +106,27 @@
 	$ ifconfig eth0 192.168.0.2
 	```
 2. Остановить и запустить сетевой интерфейс eth0:
-
+	```
 	$ ifconfig eth0 down
 	$ ifconfig eth0 up
-
+	```
+	
 3. Произвести смену аппаратного (MAC) адреса сетевого интерфейса eth0:
-
+	```
 	$ ifconfig eth0 hw ether AA:AA:AA:AA:AA:AA
+	```
 	
 4. Показать таблицу сетевых маршрутов. Установить маршрут по умолчанию:
-
+	```
 	$ route add default gw 192.168.0.1 eth0
+	```
 	
 ![](https://i.imgur.com/nV8PkjL.png)
 
 5. Получить настройки IP от DHCP сервера:
-
+	```
 	iface eth0 inet dhcp
+	```
 	
 ![](https://i.imgur.com/m5k2Qzy.png)
 
