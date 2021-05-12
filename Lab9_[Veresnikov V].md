@@ -44,14 +44,14 @@ cfdisk /dev/sdb
 cfdisk /dev/sdc
 ```
 
-![sdb](sdb.PNG?raw=true)
-![sdc](sdc.PNG?raw=true)
+![sdb](sdb.png?raw=true)
+![sdc](sdc.png?raw=true)
 
 ```
 Создаем RAID 1 массив командой:
 mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 --metadata=0.90
 ```
-![raid](mdadm.PNG?raw=true)
+![raid](mdadm.png?raw=true)
 
 3. Поверх raid массива развернуть lvm и 4. Создать файловую систему в lvm разделах и примонтировать в систему
 ```
@@ -61,7 +61,7 @@ mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 --metadat
 Форматируем раздел командой mkfs.ext4 -L main /dev/test/main.
 Монтируем раздел.
 ```
-![lvm](lvm.PNG?raw=true)
+![lvm](lvm.png?raw=true)
 
 5. Продемонстрировать умение замены жесткого диска
 ```
@@ -71,7 +71,7 @@ mdadm --manage /dev/md0 --fail /dev/sdb1
 Удаляем его из массива:
 mdadm --manage /dev/md0 --remove /dev/sdb1
 ```
-![faildisk](delsdb1.PNG?raw=true)
+![faildisk](delsdb1.png?raw=true)
 ```
 Копируем таблицу разделов:
 sfdisk -d /dev/sdc | sfdisk /dev/sdb
@@ -80,8 +80,8 @@ mdadm --manage /dev/md0 --add /dev/sdb1
 Проверяем rebuild status:
 mdadm --detail /dev/md0
 ```
-![rebuildstat](copytable.PNG?raw=true)
-![rebuildstat](rebuildstatus.PNG?raw=true)
+![rebuildstat](copytable.png?raw=true)
+![rebuildstat](rebuildstatus.png?raw=true)
 
 6. Расширить размер раздела за счет неиспользуемого пространтсва в raid массиве
 ```
