@@ -21,3 +21,35 @@
  - Создать правило: iptables -A NEWCHAIN [args]
  - До конкретного: iptables -I NEWCHAIN [N] [args]
  - Удалить правило: iptables -D NEWCHAIN
+ 
+ ***
+ Практика:
+ взять за основу конфигурационный файл iptables и поднять в системе ssh сервер.
+***
+```
+Поднят ssh сервер:
+iptables-restore chelgu_iptables
+systemctl start ssh
+```
+***
+1 настроить правила которые разрешают доступ на этот сервер с определенной подсети или хоста в которой находитесь вы как клиент, продемонстрировать что работает icmp
+***
+```
+iptables -I INPUT -s 192.168.11.1 -j ACCEPT
+```
+![dem1](dem1.PNG?raw=true)
+***
+2 затем закрыть доступ из этой подсети по icmp, осавив доступ по ssh, продемонстрировать что хост по ssh доступен а icmp нет
+***
+```
+iptables -I INPUT -s 192.168.11.1 -j DROP
+iptables -I INPUT -s 192.168.11.1 -p tcp --dport 22 -j ACCEPT
+```
+![dem2](dem2.PNG?raw=true)
+***
+3 Запретить только ssh , продемонстрировать что icmp работает
+***
+```
+iptables -I INPUT -s 192.168.11.1 -p tcp --dport 22 -j DROP
+```
+![dem3](dem3.PNG?raw=true)
