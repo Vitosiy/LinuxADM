@@ -27,3 +27,72 @@
  - Физический том - устройство, представимое в ОС как один диск
  - Группа физических томов
  - Логический том, доступный программам
+ 
+ 
+ Практика:
+ ---
+1. Добавить в виртуальном сервере два hdd
+```
+Добавлены два диска:
+```
+![HDD](HDD.jpg?raw=true)
+
+2. Собрать на них raid1 массив
+```
+Размечаем диски, выбираем тип Linux RAID командной для каждого диска соответсвенно:
+cfdisk /dev/sdb
+cfdisk /dev/sdc
+```
+
+![sdb](sdb.PNG?raw=true)
+![sdc](sdc.PNG?raw=true)
+
+```
+Создаем RAID 1 массив командой:
+mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1 --metadata=0.90
+```
+![raid](mdadm.PNG?raw=true)
+
+3. Поверх raid массива развернуть lvm и 4. Создать файловую систему в lvm разделах и примонтировать в систему
+```
+Инициализируем диск командой pvcreate /dev/md0 – в начале диска создается дескриптор группы томов.
+С помощью команды vgcreate test /dev/md0 создаем группу томов test из инициализированного на предыдущем этапе диска.
+Группу томов разделяем на логические тома командой lvcreate -n main -L4G test (создаем тома с именем main на 4ГБ из группы test).
+Форматируем раздел командой mkfs.ext4 -L main /dev/test/main.
+Монтируем раздел.
+```
+![lvm](lvm.PNG?raw=true)
+
+5. Продемонстрировать умение замены жесткого диска
+```
+"Фейлим" диск:
+mdadm --manage /dev/md0 --fail /dev/sdb1
+
+Удаляем его из массива:
+mdadm --manage /dev/md0 --remove /dev/sdb1
+```
+![faildisk](delsdb1.PNG?raw=true)
+```
+Копируем таблицу разделов:
+sfdisk -d /dev/sdc | sfdisk /dev/sdb
+Добавляем диск в массив:
+mdadm --manage /dev/md0 --add /dev/sdb1
+Проверяем rebuild status:
+mdadm --detail /dev/md0
+```
+![rebuildstat](copytable.PNG?raw=true)
+![rebuildstat](rebuildstatus.PNG?raw=true)
+
+6. Расширить размер раздела за счет неиспользуемого пространтсва в raid массиве
+```
+Используем команду mdadm --grow /dev/md0 --size=max
+ИЛИ
+Расширяем physical volume до максимума pvresize /dev/md0
+
+Меняем размер logical volume, используя максимум доступного места:
+lvextend -l +100%FREE /dev/mapper/test-main
+
+Меняем размер файловой системы с учётом появившегося места:
+resize2fs /dev/mapper/test-main
+```
+ 
